@@ -1,17 +1,31 @@
 class Solution {
   public:
     bool twoSum(vector<int>& arr, int target) {
-        // code here
-        unordered_map<int, int> mp;
-        for (int i=0;i<arr.size();i++){
-            int need=target-arr[i];
-            if(mp.find(need)!=mp.end()){
+        // code here( hash map)
+        // unordered_map<int, int> mp;
+        // for (int i=0;i<arr.size();i++){
+        //     int need=target-arr[i];
+        //     if(mp.find(need)!=mp.end()){
+        
+        //two pointer approach
+        sort(arr.begin(), arr.end());
+
+        int left=0, right=arr.size()-1;
+        while(left<right){
+            int sum=arr[left]+arr[right];
+            if(sum==target){
                 return true;
             }
-                mp[arr[i]] = i;
+            else if(sum<target) left++;
+            else right--;
         }
-        return false;
-    }
+                //return true;
+         //   }
+               // mp[arr[i]] = i;
+               return false;
+        }
+       // return false;
+    
 };
 
 // Synced seamlessly with LeetHub Pro
