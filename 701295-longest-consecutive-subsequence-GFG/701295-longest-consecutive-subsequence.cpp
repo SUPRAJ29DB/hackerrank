@@ -1,0 +1,37 @@
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+
+        if (nums.empty())
+            return 0;
+
+        sort(nums.begin(), nums.end());
+
+        int longest = 1;
+        int cnt = 1;
+
+        for (int i = 1; i < nums.size(); i++) {
+
+            if (nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            else if (nums[i] == nums[i - 1] + 1) {
+                cnt++;
+            }
+
+            else {
+                longest = max(longest, cnt);
+                cnt = 1;
+            }
+        }
+
+        longest = max(longest, cnt);
+
+        return longest;
+    }
+};
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
