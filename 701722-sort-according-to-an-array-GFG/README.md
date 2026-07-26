@@ -1,4 +1,4 @@
-# [Sort according to an Array](https://www.geeksforgeeks.org/problems/relative-sorting4323/1?page=3&category=Sorting&sortBy=submissions)
+# [Sort according to an Array](https://www.geeksforgeeks.org/problems/relative-sorting4323/1)
 ## Medium
 Given two integer arrays a1[] and a2[]. Sort the first array a1[] such that all the relative positions of the elements in the first array are the same as the elements in the second array a2[].Note: If elements are repeated in the second array, consider their first occurance only. Elements not in a2[] should appear in a1[] at the end in ascending order.
 Examples :
