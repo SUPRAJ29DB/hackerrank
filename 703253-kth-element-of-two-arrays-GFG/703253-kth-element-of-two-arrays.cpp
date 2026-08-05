@@ -8,8 +8,8 @@ public:
             return kthElement(b, a, k);
         }
 
-        int low = std::max(0, k - m);
-        int high = std::min(k, n);
+        int low = max(0, k - m);
+        int high = min(k, n);
 
         while (low <= high) {
             int mid1 = low + (high - low) / 2;
