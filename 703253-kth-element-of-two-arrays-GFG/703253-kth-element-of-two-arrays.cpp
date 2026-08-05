@@ -1,19 +1,13 @@
-#include <vector>
-#include <algorithm>
-#include <climits>
-
 class Solution {
 public:
     int kthElement(std::vector<int>& a, std::vector<int>& b, int k) {
         int n = a.size();
         int m = b.size();
 
-        // Always perform binary search on the smaller array
         if (n > m) {
             return kthElement(b, a, k);
         }
 
-        // Define valid search boundaries for elements taken from array 'a'
         int low = std::max(0, k - m);
         int high = std::min(k, n);
 
@@ -26,15 +20,13 @@ public:
             int r1 = (mid1 == n) ? INT_MAX : a[mid1];
             int r2 = (mid2 == m) ? INT_MAX : b[mid2];
 
-            // Valid partition found
             if (l1 <= r2 && l2 <= r1) {
                 return std::max(l1, l2);
             }
-            // Move left in array 'a'
             else if (l1 > r2) {
                 high = mid1 - 1;
             }
-            // Move right in array 'a'
+           
             else {
                 low = mid1 + 1;
             }
