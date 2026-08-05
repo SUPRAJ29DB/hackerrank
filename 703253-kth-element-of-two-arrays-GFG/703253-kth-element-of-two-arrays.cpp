@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int kthElement(std::vector<int>& a, std::vector<int>& b, int k) {
+    int kthElement(vector<int>& a, vector<int>& b, int k) {
         int n = a.size();
         int m = b.size();
 
@@ -21,7 +21,7 @@ public:
             int r2 = (mid2 == m) ? INT_MAX : b[mid2];
 
             if (l1 <= r2 && l2 <= r1) {
-                return std::max(l1, l2);
+                return max(l1, l2);
             }
             else if (l1 > r2) {
                 high = mid1 - 1;
