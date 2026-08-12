@@ -2,19 +2,34 @@ class Solution {
   public:
     int sumOfDigits(int n) {
         // code here
-        vector<int>dp(n+1);
-        dp[0]=0;
-        dp[1]=1;
-        for(int i=2;i<=n;i++){
-            int x=i;
-            int sum=0;
-            while(x>0){
-                sum+=x%10;
-                x=x/10;
-            }
-            dp[i]=dp[i-1]+sum;
+        // vector<int>dp(n+1);
+        // dp[0]=0;
+        // dp[1]=1;
+        // for(int i=2;i<=n;i++){
+        //     int x=i;
+        //     int sum=0;
+        //     while(x>0){
+        //         sum+=x%10;
+        //         x=x/10;
+        //     }
+        //     dp[i]=dp[i-1]+sum;
+        // }
+        // return dp[n];
+       
+        
+        vector<long long> dp(n + 1, 0);
+        
+        long long ans = 0;
+        
+        for(int i = 1; i <= n; i++) {
+            
+            dp[i] = dp[i / 10] + i % 10;
+            
+            ans += dp[i];
         }
-        return dp[n];
+        
+        return ans;
+    
     }
 };
 
