@@ -1,24 +1,39 @@
 class Solution {
   public:
+
+    void reverse(vector<int>& arr) {
+        int low = 0;
+        int high = arr.size() - 1;
+
+        while(low < high) {
+            int temp = arr[low];
+            arr[low] = arr[high];
+            arr[high] = temp;
+
+            low++;
+            high--;
+        }
+    }
+
     vector<int> leaders(vector<int>& arr) {
 
-        int n = arr.size();
         vector<int> ans;
 
-        int maxi = arr[n - 1];
-        ans.push_back(maxi);
+        int right = arr[arr.size() - 1];
 
-        // Traverse from right to left
-        for (int i = n - 2; i >= 0; i--) {
+        
+        ans.push_back(right);
 
-            if (arr[i] >= maxi) {
-                maxi = arr[i];
+        for(int i = arr.size() - 2; i >= 0; i--) {
+
+            if(arr[i] >= right) {
                 ans.push_back(arr[i]);
+                right = arr[i];
             }
         }
 
-        // Reverse to restore original order
-        reverse(ans.begin(), ans.end());
+
+        reverse(ans);
 
         return ans;
     }
